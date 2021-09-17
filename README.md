@@ -6,6 +6,7 @@ _Dave's Meals_ is a food-ordering app that would give GrubHub and Doordash a run
 ### Technologies
 * React ( _JavaScript_ )
   * Hooks
+  * React Portals 
 * OOP fundamentals:
   * Inheritance
   * Re-usable components
