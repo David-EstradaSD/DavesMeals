@@ -33,9 +33,9 @@ const DUMMY_MEALS = [
 const AvailableMeals = () => {
   const mealsList = DUMMY_MEALS.map((meal) => (
     <MealItem
-      id={meal.id}
       key={meal.id}
-    //   meal={meal} // note that we can just pass a "meal" prop and chain.invoke it in the child MealItem along with props!!
+      id={meal.id}
+      //   meal={meal} // note that we can just pass a "meal" prop and chain.invoke it in the child MealItem along with props!!
       name={meal.name}
       description={meal.description}
       price={meal.price}
