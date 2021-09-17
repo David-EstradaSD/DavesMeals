@@ -13,7 +13,7 @@ const cartReducer = (state, action) => {
     const existingCartItemIndex = state.items.findIndex(
       (item) => item.id === action.item.id
       ); // findIndex() is a built-in JS function which finds the index of an item in an array
-      
+         // so we find a specific element (item) in our array of items and Add / Remove it
       const existingCartItem = state.items[existingCartItemIndex];
       
       let updatedItems;
@@ -37,6 +37,28 @@ const cartReducer = (state, action) => {
       totalAmount: updatedTotalAmount,
     };
   }
+
+  if (action.identifier === 'REMOVE') {
+    const existingCartItemIndex = state.items.findIndex(
+      (item) => item.id === action.id
+      ); 
+      const existingItem = state.items[existingCartItemIndex];
+      const updatedTotalAmount = state.totalAmount - existingItem.price;
+      let updatedItems;
+      if (existingItem.amount === 1) { // if it's the last item of that type of food order / For ex) 1 Sushi
+        updatedItems = state.items.filter(item => item.id !== action.id);
+        // want to return a new array with filter() of all items that don't match the item.id with the action.id
+      } else {
+        const updatedItem = {...existingItem, amount: existingItem.amount - 1 };
+        updatedItems = [...state.items];
+        updatedItems[existingCartItemIndex] = updatedItem;
+      }
+      return {
+        items: updatedItems,
+        totalAmount: updatedTotalAmount
+      };
+  }
+  
   return defaultCartState;
 };
 

@@ -12,12 +12,12 @@ const Cart = (props) => {
 
   const containsItems = cartContext.items.length > 0;
 
-  const cartItemRemoveHandler = id => {
-
+  const cartItemRemoveHandler = (id) => {
+    cartContext.removeItem(id);
   };
 
-  const cartItemAddHandler = item => {
-
+  const cartItemAddHandler = (item) => {
+    cartContext({...item, amount: 1});
   };
 
   const cartItems = (
@@ -28,13 +28,11 @@ const Cart = (props) => {
           name={item.name}
           amount={item.amount}
           price={item.price}
-          onRemove={cartItemRemoveHandler.bind(null, item.id)} 
+          onRemove={cartItemRemoveHandler.bind(null, item.id)}
           onAdd={cartItemAddHandler.bind(null, item)}
-          // .bind() pre-configures a function for future execution 
-          // by allowing us to pre-configure the argument the function will receive 
-        >
-          {item.name}
-        </CartItem>
+          // .bind() pre-configures a function for future execution
+          // by allowing us to pre-configure the argument the function will receive
+        />
       ))}
     </ul>
   );
