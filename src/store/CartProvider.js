@@ -1,18 +1,41 @@
 import { useReducer } from "react";
 import CartContext from "./cart-context";
 
-const CartProvider = (props) => {
-  const addItemToCartHandler = (item) => {
+const defaultCartState = {
+    items: [],     // this is the total number of items in the shopping cart
+    totalAmount: 0 // this is the total price of the shopping cart
+};
 
+const cartReducer = (state, action) => {
+    // cartReducer holds all the logic for adding an item to the cart
+    if (action.identifier === 'ADD') {
+        const updatedItems = state.items.concat(action.item); // recall that concat() adds a new element to the array BUT generates a brand new array 'state-object'
+        const updatedTotalAmount = state.totalAmount + (action.item.price * action.item.amount);
+        return {
+            items: updatedItems,
+            totalAmount: updatedTotalAmount
+        };
+    }
+    return defaultCartState;
+};
+
+const CartProvider = (props) => {
+    const [cartState, dispatchCartAction] = useReducer(cartReducer, defaultCartState);
+
+
+  const addItemToCartHandler = (item) => {
+      dispatchCartAction({identifier: 'ADD', item: item}); 
+    // Generally, we name our object's 1st property 'identifier' or 'type'
+    // and we set the value to ALL CAPS String with a relavant name 
   };
 
   const removeItemFromCartHandler = (id) => {
-
+      dispatchCartAction({identifier: 'REMOVE', id: id})
   };
 
   const cartContext = {
-    items: [],
-    totalAmount: 0,
+    items: cartState.items,
+    totalAmount: cartState.totalAmount,
     addItem: addItemToCartHandler,
     removeItem: removeItemFromCartHandler,
   };
