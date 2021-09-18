@@ -13,8 +13,8 @@ _Dave's Meals_ is a food-ordering app that would give GrubHub and Doordash a run
 
 ### How to Run
 This app is not deployed to my EC2. To run it, follow these steps:
-* Git clone this repository
-* Open a modern IDE (_VS Code preferably_)
+* Git clone this repository into a local directory (folder)
+* Open the folder in a modern IDE (_VS Code preferably_)
 * Run _npm start_ from the terminal window
 
 ### Lessons Learned
