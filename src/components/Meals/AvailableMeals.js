@@ -5,6 +5,7 @@ import MealItem from "./MealItem/MealItem";
 
 const AvailableMeals = () => {
   const [meals, setMeals] = useState([]);
+  const [isLoading, setIsLoading] = useState(true); // we want to start this componenet with rendering data from the DB, thus we want to show this
 
   useEffect(() => { // This useEffect will only run the 1st time the component is rendered
     const fetchMeals = async () => {
@@ -24,10 +25,19 @@ const AvailableMeals = () => {
       }
 
       setMeals(loadedMeals); // update our empty array with the fetched data from the DB
+      setIsLoading(false); // done loading data from the DB
     };
 
     fetchMeals();
   }, []);
+
+  if (isLoading) {
+    return (
+      <section className={styles.MealsLoading}>
+        <p> Loading...</p>
+      </section>
+    );
+  }
 
   const mealsList = meals.map((meal) => (
     <MealItem
