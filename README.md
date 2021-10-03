@@ -6,6 +6,7 @@ _Dave's Meals_ is a food-ordering app that would give GrubHub and Doordash a run
 ### Technologies
 * React ( _JavaScript_ )
   * Hooks ( _useState, useContext, useReducer, useRef_ )
+  * Custom hooks
   * [Google Firebase API](https://firebase.google.com/)
   * React Portals 
 * OOP fundamentals:
@@ -19,4 +20,4 @@ This app is not deployed to my EC2. To run it, follow these steps:
 * Run _npm start_ from the terminal window
 
 ### Lessons Learned
- This project was built with the assistance of a tutorial through Udemy that taught the _React framework_ ( 48+ hours ). The data is managed by [Google Firebase API](https://firebase.google.com/). 
+I learned so much about React while building this application: form validation, custom hooks, and how to send asynchronous requests to a back-end. This project was built with the assistance of a tutorial through Udemy that taught the _React framework_ ( 48+ hours ). The data is managed by [Google Firebase API](https://firebase.google.com/). 
