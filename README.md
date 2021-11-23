@@ -20,4 +20,4 @@ This app is not currently deployed live. To run it, follow these steps:
 * Run _npm start_ from the terminal window
 
 ### Lessons Learned
-I learned so much about React while building this application: form validation, custom hooks, and how to send asynchronous requests to a back-end. This project was built with the assistance of a tutorial through Udemy that taught the _React framework_ ( 48+ hours ). The data is managed by [Google Firebase API](https://firebase.google.com/). 
+I learned so much about React while building this application: form validation, custom hooks, and how to send asynchronous requests to a back-end. This project was built with the assistance of an online Udemy course that taught the _React framework_ ( 48+ hours ). The data is managed by [Google Firebase API](https://firebase.google.com/). 
